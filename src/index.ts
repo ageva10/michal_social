@@ -29,8 +29,8 @@ if (config.NODE_ENV === 'production') {
   app.set('trust proxy', true)
 }
 
-const root: string = path.join(__dirname, '../public/index.html')
-app.use(express.static(path.join(__dirname, '../public')))
+const root: string = path.join(__dirname, '../public/dist/index.html')
+app.use(express.static(path.join(__dirname, '../public/dist')))
 app.use('/', (req: Request, res: Response): void => res.sendFile(root))
 
 app.listen(PORT, (): void => {
