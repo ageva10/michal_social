@@ -1,0 +1,38 @@
+import express, { Application, Request, Response } from 'express'
+import cors from 'cors'
+import util from 'util'
+import path from 'path'
+import dayjs from 'dayjs'
+import helmet from 'helmet'
+import compression from 'compression'
+import config from './config'
+
+const log = console.log.bind(console)
+
+console.log = function (...args) {
+  log(`[${dayjs().format('DD/MM/YYYY HH:mm:ss')}]:`, util.format(...args))
+}
+
+const app: Application = express()
+const PORT: number = config.PORT
+
+app.use(cors({
+  origin: config.ORIGIN,
+  credentials: config.CREDENTIALS
+}))
+app.use(helmet())
+app.use(compression())
+app.use(express.json({ limit: '2mb' }))
+app.use(express.urlencoded({ extended: true }))
+
+if (config.NODE_ENV === 'production') {
+  app.set('trust proxy', true)
+}
+
+const root: string = path.join(__dirname, '../public/index.html')
+app.use(express.static(path.join(__dirname, '../public')))
+app.use('/', (req: Request, res: Response): void => res.sendFile(root))
+
+app.listen(PORT, (): void => {
+  console.log(`Server running at http://localhost:${PORT}`)
+})
