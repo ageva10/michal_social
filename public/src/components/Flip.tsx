@@ -8,8 +8,8 @@ type FlipProps = {
 
 const Flip = ({ value }: FlipProps) => {
   const tickRef = useRef(null)
-  const tickInstance = useRef(null)
-  const [count, setCount] = useState(value)
+  const tickInstance = useRef<{ value: any }>(null)
+  const [count, setCount] = useState<number>(value)
 
   // Initialize Flip on mount
   useEffect(() => {

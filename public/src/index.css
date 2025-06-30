@@ -1,3 +1,51 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 1000px;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  /*height: 100vh;*/
+  /*border: 10px solid #333232;*/
+}
+
+section .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 900px;
+  padding: 30px;
+  border-radius: 30px;
+  /*border: 1px solid #333232;*/
+}
+
+section .container .icon {
+  margin-left: 10px;
+}
+
+.fa-xl {
+  font-size: 6rem;
+}
+
 .tick {
   font-size: 5em;
   font-family: fantasy, sans-serif;
