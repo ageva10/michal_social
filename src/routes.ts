@@ -79,7 +79,7 @@ export default class Routes {
   async getTiktokData(req: Request, res: Response) {
     try {
 
-      const { data } = await axios.get('https://www.tiktok.com/api/post/item_list/?WebIdLastTime=1751117031&aid=1988&app_language=en&app_name=tiktok_web&browser_language=en-US&browser_name=Mozilla&browser_online=true&browser_platform=Win32&browser_version=5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F138.0.0.0%20Safari%2F537.36&channel=tiktok_web&clientABVersions=74014084%2C74141282&cookie_enabled=true&count=35&coverFormat=2&cursor=0&data_collection_enabled=true&device_id=7520990354766906886&device_platform=web_pc&focus_state=true&from_page=user&history_len=8&is_fullscreen=false&is_page_visible=true&language=en&needPinnedItemIds=true&odinId=7520990275667067960&os=windows&post_item_list_request_type=0&priority_region=&referer=&region=IL&screen_height=1440&screen_width=3440&secUid=MS4wLjABAAAAnt-NenIYBlwlmp7vPRPF4WxyxibBdavsMqIYHcU0G-DAgL5dxHF1i8vFFN9MZpxn&tz_name=Asia%2FJerusalem&user_is_login=false&verifyFp=verify_mcp0x9nb_T2gNUI6f_DdrE_4ck6_94r4_w4hoFEK604MD&webcast_language=en&msToken=0WdhWRE3uVeDbzMsSiLasaC3nmoqmHpEIWNQM7jJHW2b-GGQsO1Czl3vWhci0OVZoK6QxgD3hCIBrav3U_NnCZpyUeu-a_vW-F-0ViRX9Hhy38L6zYEvKJ1ppKRbtYQGYfq9BG_UNGYH99109prL3vnX&X-Bogus=DFSzswVu/tJANtirCtrZqRvVLFCP', {
+      const { data } = await axios.get('', {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
         }
