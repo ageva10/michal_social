@@ -7,6 +7,8 @@ import helmet from 'helmet'
 import compression from 'compression'
 import config from './config'
 
+import Routes from './routes'
+
 const log = console.log.bind(console)
 
 console.log = function (...args) {
@@ -29,10 +31,18 @@ if (config.NODE_ENV === 'production') {
   app.set('trust proxy', true)
 }
 
+app.use('/api', new Routes().getRouter())
+
 const root: string = path.join(__dirname, '../public/dist/index.html')
 app.use(express.static(path.join(__dirname, '../public/dist')))
 app.use('/', (req: Request, res: Response): void => res.sendFile(root))
 
+const closeServer = (): void => {
+  console.log('Server closed')
+  process.exit()
+}
+
 app.listen(PORT, (): void => {
   console.log(`Server running at http://localhost:${PORT}`)
+  process.once('SIGINT', closeServer).once('SIGTERM', closeServer)
 })
